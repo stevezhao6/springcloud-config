@@ -9,8 +9,6 @@ spring:
   profiles: dev
   application:
       name: springcloud-provider-dept
-  
-
 # Eureka的配置,服务注册到配置中心
 eureka:
   client:
@@ -24,7 +22,6 @@ spring:
   profiles: test
   application:
       name: springcloud-provider-dept
- ---
 # Eureka的配置,服务注册到配置中心
 eureka:
   client:
