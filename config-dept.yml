@@ -1,0 +1,76 @@
+spring:
+  profiles:
+    active: dev
+---
+# 配置端口号
+server:
+  port: 8001
+# 配置mybatis
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  type-aliases-package: com.zhao.pojo
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+# 配置spring
+spring:
+  profiles:dev
+  application:
+    name: springcloud-provider-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource # 数据源
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springcloud?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 564929
+  devtools:
+    add-properties: true # 设置热部署
+
+# Eureka的配置,服务注册到配置中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: springcloud-provider-dept8001 # 修改eureka上的默认描述信息！
+
+# 配置info,让别人看到信息
+info:
+  app.name: stevezhao-springcloud
+  company.name: blog.stevezhao.com
+
+---
+# 配置端口号
+server:
+  port: 8001
+# 配置mybatis
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  type-aliases-package: com.zhao.pojo
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+# 配置spring
+spring:
+  profiles:test
+  application:
+    name: springcloud-provider-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource # 数据源
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springcloud1?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 564929
+  devtools:
+    add-properties: true # 设置热部署
+
+# Eureka的配置,服务注册到配置中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: springcloud-provider-dept8001 # 修改eureka上的默认描述信息！
+
+# 配置info,让别人看到信息
+info:
+  app.name: stevezhao-springcloud
+  company.name: blog.stevezhao.com
